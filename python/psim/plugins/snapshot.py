@@ -52,11 +52,6 @@ class Snapshot(Plugin):
             'truth.leader.attitude.q.body_eci',
             'truth.leader.attitude.w',
             'truth.leader.wheels.w',
-            'truth.follower.orbit.r',
-            'truth.follower.orbit.v',
-            'truth.follower.attitude.q.body_eci',
-            'truth.follower.attitude.w',
-            'truth.follower.wheels.w',
         ]
         
         log.info('Saving simulation snapshot to "%s"', self._snapshot)
