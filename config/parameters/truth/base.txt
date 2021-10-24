@@ -16,12 +16,3 @@ truth.leader.J  0.03798 0.03957 0.00688
 
 truth.leader.wheels.J      135.0e-7
 truth.leader.wheels.w_max  677.0
-
-# Follower spacecraft attitude and orbit shared initial conditions.
-
-truth.follower.S  0.03
-truth.follower.m  5.0
-truth.follower.J  0.03798 0.03957 0.00688
-
-truth.follower.wheels.J      135.0e-7
-truth.follower.wheels.w_max  677.0

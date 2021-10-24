@@ -36,26 +36,3 @@ sensors.leader.magnetometer.b.sigma   5.00e-7 5.00e-7 5.00e-7
 sensors.leader.sun_sensors.disabled       false
 sensors.leader.sun_sensors.model_eclipse  false
 sensors.leader.sun_sensors.s.sigma        0.0349066 0.0349066
-
-# Follower spacecraft base sensor configuration
-
-sensors.follower.gps.disabled  false
-sensors.follower.gps.r.sigma   5.0 5.0 5.0
-sensors.follower.gps.v.sigma   5.0 5.0 5.0
-
-sensors.follower.cdgps.disabled     false
-sensors.follower.cdgps.model_range  true
-sensors.follower.cdgps.range        2000.0
-sensors.follower.cdgps.dr.sigma     0.01 0.01 0.01
-
-sensors.follower.gyroscope.disabled       false
-sensors.follower.gyroscope.w.bias        -0.01    0.01    0.04
-sensors.follower.gyroscope.w.bias.sigma   1.00e-6 1.00e-6 1.00e-6
-sensors.follower.gyroscope.w.sigma        2.75e-4 2.75e-4 2.75e-4
-
-sensors.follower.magnetometer.disabled  false
-sensors.follower.magnetometer.b.sigma   5.00e-7 5.00e-7 5.00e-7
-
-sensors.follower.sun_sensors.disabled       false
-sensors.follower.sun_sensors.model_eclipse  false
-sensors.follower.sun_sensors.s.sigma        0.0349066 0.0349066

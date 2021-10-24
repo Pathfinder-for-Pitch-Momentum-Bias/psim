@@ -4,11 +4,7 @@
 from _psim import (
     AttitudeEstimatorTestGnc,
     DetumblerTest,
-    DualAttitudeOrbitGnc,
-    DualOrbitGnc,
     OrbOrbitEstimatorTest,
-    RelativeOrbitEstimatorTest,
-    OrbitControllerTest,
     SingleAttitudeOrbitGnc,
     SingleOrbitGnc,
 )
