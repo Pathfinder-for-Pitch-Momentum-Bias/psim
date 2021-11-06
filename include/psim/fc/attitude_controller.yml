@@ -1,0 +1,23 @@
+
+name: AttitudeControllerInterface
+type: Model
+comment: >
+    Interface for how the flight computer's attitude controller will interact
+    with the simulation in PSim standalone.
+
+args:
+    - satellite
+
+adds:
+
+gets:
+    - name: "fc.{satellite}.attitude.is_valid"
+      type: Integer
+    - name: "fc.{satellite}.attitude.q.body_eci"
+      type: Vector4
+    - name: "fc.{satellite}.attitude.w.bias"
+      type: Vector3
+    - name: "sensors.{satellite}.gyroscope.w"
+      type: Vector3
+    - name: "truth.{satellite}.wheels.t"
+      type: Writable Vector3
