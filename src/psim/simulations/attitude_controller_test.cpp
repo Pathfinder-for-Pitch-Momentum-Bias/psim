@@ -22,34 +22,25 @@
 // SOFTWARE.
 //
 
-/** @file psim/fc/attitude_controller.hpp
+/** @file psim/simulations/attitude_controller_test.cpp
  *  @author Govind Chari
  */
 
-#ifndef PSIM_FC_ATTITUDE_CONTROLLER_HPP_
-#define PSIM_FC_ATTITUDE_CONTROLLER_HPP_
+#include <psim/simulations/attitude_controller_test.hpp>
 
-#include <lin/generators.hpp>
-#include <psim/fc/attitude_controller.yml.hpp>
+#include <psim/fc/attitude_estimator.hpp>
+#include <psim/fc/attitude_controller.hpp>
 
-#include <gnc/attitude_controller.hpp>
+#include <psim/simulations/single_attitude_orbit.hpp>
+#include <psim/simulations/attitude_estimator_test.hpp>
 
 namespace psim {
 
-class AttitudeController : public AttitudeControllerInterface<AttitudeController> {
- private:
-  typedef AttitudeControllerInterface<AttitudeController> Super;
-
-  gnc::PointingControllerState _attitude_controller;
-
- public:
-  using Super::AttitudeControllerInterface;
-
-  AttitudeController() = delete;
-  virtual ~AttitudeController() = default;
-  virtual void add_fields(State &state) override;
-  virtual void step() override;
-};
+AttitudeControllerTest::AttitudeControllerTest(
+    RandomsGenerator &randoms, Configuration const &config)
+  : ModelList(randoms) {
+  add<SingleAttitudeOrbitGnc>(randoms, config);
+  add<AttitudeEstimator>(randoms, config, "leader");
+  add<AttitudeController>(randoms, config, "leader");
+}
 } // namespace psim
-
-#endif

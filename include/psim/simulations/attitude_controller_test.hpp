@@ -22,33 +22,26 @@
 // SOFTWARE.
 //
 
-/** @file psim/fc/attitude_controller.hpp
+/** @file psim/simulations/attitude_controller_test.hpp
  *  @author Govind Chari
  */
 
-#ifndef PSIM_FC_ATTITUDE_CONTROLLER_HPP_
-#define PSIM_FC_ATTITUDE_CONTROLLER_HPP_
+#ifndef PSIM_SIMULATIONS_ATTITUDE_CONTROLLER_TEST_HPP_
+#define PSIM_SIMULATIONS_ATTITUDE_CONTROLLER_TEST_HPP_
 
-#include <lin/generators.hpp>
-#include <psim/fc/attitude_controller.yml.hpp>
-
-#include <gnc/attitude_controller.hpp>
+#include <psim/core/configuration.hpp>
+#include <psim/core/model_list.hpp>
 
 namespace psim {
 
-class AttitudeController : public AttitudeControllerInterface<AttitudeController> {
- private:
-  typedef AttitudeControllerInterface<AttitudeController> Super;
-
-  gnc::PointingControllerState _attitude_controller;
-
+/** @brief Models the attitude controller running on the flight computer
+ */
+class AttitudeControllerTest : public ModelList {
  public:
-  using Super::AttitudeControllerInterface;
+  AttitudeControllerTest() = delete;
+  virtual ~AttitudeControllerTest() = default;
 
-  AttitudeController() = delete;
-  virtual ~AttitudeController() = default;
-  virtual void add_fields(State &state) override;
-  virtual void step() override;
+  AttitudeControllerTest(RandomsGenerator &randoms, Configuration const &config);
 };
 } // namespace psim
 

@@ -7,4 +7,5 @@ from _psim import (
     OrbOrbitEstimatorTest,
     SingleAttitudeOrbitGnc,
     SingleOrbitGnc,
+    AttitudeControllerTest,
 )

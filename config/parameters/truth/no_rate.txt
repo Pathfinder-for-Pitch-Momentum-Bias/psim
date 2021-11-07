@@ -8,7 +8,7 @@ truth.t.ns  0
 # Leader spacecraft attitude and orbit initial conditions.
 
 truth.leader.attitude.q.body_eci  0.0  0.0  0.0 1.0
-truth.leader.attitude.w           0.0  0.0  0.0
+truth.leader.attitude.w           0.1  0.0  0.0
 truth.leader.wheels.w             0.0  0.0  0.0
 
 truth.leader.orbit.r  6.8538e6 0.0      0.0

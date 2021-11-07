@@ -33,7 +33,8 @@
 #include <lin/core.hpp>
 #include <lin/generators.hpp>
 #include <lin/math.hpp>
-#include <lin/queries.hpp>
+
+
 
 namespace psim {
 
@@ -42,5 +43,27 @@ void AttitudeController::add_fields(State &state) {
 }
 
 void AttitudeController::step() {
+  this->Super::step();
+
+  float Kp = 0.0f;
+  float Kd = 0.000000026037f;
+
+  auto const &attitude_valid = fc_satellite_attitude_is_valid->get();
+  auto const &q_body_eci = fc_satellite_attitude_q_body_eci->get();
+  auto const &w = fc_satellite_attitude_w->get();
+  auto &wheels_t = truth_satellite_wheels_t->get();
+
+  lin::Vector3f q_vec = {q_body_eci(1),q_body_eci(2),q_body_eci(3)};
+  lin::Vector3f torque;
+
+  if (attitude_valid)  {
+    torque =  -(Kp * q_vec + Kd * w);
+  } else {
+    torque = {0.0f, 0.0f, 0.0f};
+  }
+  
+  wheels_t = torque;
+
+}
     
 } // namespace psim
